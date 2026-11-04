@@ -10,28 +10,30 @@ export default function Education() {
         <h2 className="text-xl font-bold tracking-tight text-white mb-6">
           Education
         </h2>
-        {education.map((edu, idx) => (
-          <div
-            key={idx}
-            className="p-5 rounded-xl bg-zinc-900/40 border border-zinc-800/80 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
-          >
-            <div>
-              <h3 className="text-base font-semibold text-white">
-                {edu.institution}
-              </h3>
-              <p className="text-sm text-zinc-400 mt-0.5">
-                {edu.degree}
-              </p>
-              <span className="text-xs text-zinc-500 font-mono">
-                {edu.location}
-              </span>
+        <div className="space-y-4">
+          {education.map((edu, idx) => (
+            <div
+              key={idx}
+              className="p-5 rounded-xl bg-zinc-900/40 border border-zinc-800/80 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
+            >
+              <div>
+                <h3 className="text-base font-semibold text-white">
+                  {edu.institution}
+                </h3>
+                <p className="text-sm text-zinc-400 mt-0.5">
+                  {edu.degree}
+                </p>
+                <span className="text-xs text-zinc-500 font-mono">
+                  {edu.location}
+                </span>
+              </div>
+              <div className="sm:text-right font-mono text-xs shrink-0">
+                <div className="text-zinc-400">{edu.period}</div>
+                <div className="text-zinc-100 font-bold mt-0.5">{edu.score}</div>
+              </div>
             </div>
-            <div className="sm:text-right font-mono text-xs shrink-0">
-              <div className="text-zinc-400">{edu.period}</div>
-              <div className="text-zinc-100 font-bold mt-0.5">{edu.score}</div>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {/* Certifications & Achievements Split */}

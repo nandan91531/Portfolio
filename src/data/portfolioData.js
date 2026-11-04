@@ -125,6 +125,13 @@ export const education = [
     degree: "Bachelor of Engineering in Electronics & Communication Engineering",
     period: "2023 – 2027",
     score: "CGPA: 8.25 / 10"
+  },
+  {
+    institution: "Kendriya Vidyalaya",
+    location: "Hinoo, Ranchi, Jharkhand – 834002",
+    degree: "Senior Secondary (Class XII – CBSE)",
+    period: "Completed",
+    score: "87.2%"
   }
 ];
 

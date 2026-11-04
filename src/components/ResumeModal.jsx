@@ -97,15 +97,19 @@ export default function ResumeModal({ isOpen, onClose }) {
             <h2 className="text-xs font-bold uppercase tracking-wider text-white border-b border-zinc-800 pb-1 mb-2 font-mono">
               Education
             </h2>
-            <div className="flex justify-between text-xs">
-              <div>
-                <strong className="text-zinc-100">{education[0].institution}</strong>, {education[0].location}
-                <div className="italic text-zinc-400">{education[0].degree}</div>
-              </div>
-              <div className="text-right font-mono text-zinc-400">
-                <div>{education[0].period}</div>
-                <div className="font-bold text-zinc-200">CGPA: {education[0].score}</div>
-              </div>
+            <div className="space-y-3">
+              {education.map((edu, idx) => (
+                <div key={idx} className="flex justify-between text-xs">
+                  <div>
+                    <strong className="text-zinc-100">{edu.institution}</strong>, {edu.location}
+                    <div className="italic text-zinc-400">{edu.degree}</div>
+                  </div>
+                  <div className="text-right font-mono text-zinc-400 shrink-0">
+                    <div>{edu.period}</div>
+                    <div className="font-bold text-zinc-200">{edu.score}</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
