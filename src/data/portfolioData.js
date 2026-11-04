@@ -15,8 +15,7 @@ export const personal = {
 };
 
 export const stats = [
-  { value: "170+", label: "LeetCode DSA" },
-  { value: "180+", label: "takeUforward" },
+  { value: "250+", label: "DSA Questions Solved" },
   { value: "50+", label: "LeetCode SQL 50" },
   { value: "8.25", label: "B.E. CGPA" },
 ];
@@ -137,7 +136,6 @@ export const certifications = [
 ];
 
 export const achievements = [
-  "Solved 170+ DSA problems on LeetCode.",
-  "Solved 180 DSA problems on takeUforward (Striver's SDE Sheet).",
+  "Solved 250+ DSA problems covering data structures, algorithmic optimization, and problem solving.",
   "Solved 50 SQL problems from LeetCode SQL 50 study plan."
 ];

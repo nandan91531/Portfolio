@@ -147,7 +147,7 @@ export default function Header({ onOpenResume }) {
       </div>
 
       {/* Quick Stats Grid with 3D depth cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-zinc-800/80">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 border-t border-zinc-800/80">
         {stats.map((s, idx) => (
           <TiltCard
             key={idx}
