@@ -54,31 +54,44 @@ export default function Education() {
 
       {/* Leadership & Extracurricular Activities */}
       <div className="mb-12">
-        <h2 className="text-xl font-bold tracking-tight text-white mb-6">
+        <h2 className="text-xl font-bold tracking-tight text-white mb-2">
           Leadership & Extracurricular Activities
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {leadership.map((item, idx) => {
-            const Icon = leadershipIcons[idx] || Users;
-            return (
-              <TiltCard
-                key={idx}
-                className="p-5 rounded-xl bg-zinc-900/40 border border-zinc-800/80 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-9 h-9 rounded-lg bg-zinc-800 border border-zinc-700/60 flex items-center justify-center text-sky-400 mb-3.5">
-                    <Icon className="w-4 h-4" />
+        <p className="text-xs sm:text-sm text-zinc-400 mb-6">
+          Team leadership, peer knowledge sharing, and strategic athletic pursuits.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {leadership.map((item, idx) => (
+            <TiltCard
+              key={idx}
+              className="p-5 rounded-2xl bg-zinc-900/50 border border-zinc-800/80 flex flex-col justify-between hover:border-zinc-700 transition-all shadow-lg"
+            >
+              <div>
+                {/* Looping Cartoon Video Animation */}
+                {item.video && (
+                  <div className="relative w-full h-36 mb-4 rounded-xl overflow-hidden bg-black/60 border border-zinc-800/80 shadow-inner group">
+                    <video
+                      src={item.video}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-full bg-zinc-950/85 backdrop-blur-md text-[10px] font-mono text-zinc-300 border border-zinc-700/60 shadow-sm">
+                      {item.tag}
+                    </div>
                   </div>
-                  <h3 className="text-sm font-semibold text-white mb-2">
-                    {item.role}
-                  </h3>
-                  <p className="text-xs text-zinc-300 leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              </TiltCard>
-            );
-          })}
+                )}
+                <h3 className="text-base font-bold text-white mb-2">
+                  {item.role}
+                </h3>
+                <p className="text-xs text-zinc-300 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            </TiltCard>
+          ))}
         </div>
       </div>
 
