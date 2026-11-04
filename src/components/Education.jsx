@@ -1,5 +1,6 @@
 import React from 'react';
 import { education, certifications, achievements } from '../data/portfolioData';
+import TiltCard from './TiltCard';
 
 export default function Education() {
   return (
@@ -12,26 +13,38 @@ export default function Education() {
         </h2>
         <div className="space-y-4">
           {education.map((edu, idx) => (
-            <div
+            <TiltCard
               key={idx}
-              className="p-5 rounded-xl bg-zinc-900/40 border border-zinc-800/80 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
+              className="p-5 rounded-xl bg-zinc-900/40 border border-zinc-800/80 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
             >
-              <div>
-                <h3 className="text-base font-semibold text-white">
-                  {edu.institution}
-                </h3>
-                <p className="text-sm text-zinc-400 mt-0.5">
-                  {edu.degree}
-                </p>
-                <span className="text-xs text-zinc-500 font-mono">
-                  {edu.location}
-                </span>
+              <div className="flex items-center gap-4">
+                {edu.logo && (
+                  <div className="w-12 h-12 rounded-xl bg-white/95 p-1.5 flex items-center justify-center shrink-0 shadow-md border border-zinc-700/50">
+                    <img
+                      src={edu.logo}
+                      alt={`${edu.institution} Logo`}
+                      className="max-w-full max-h-full object-contain"
+                    />
+                  </div>
+                )}
+                <div>
+                  <h3 className="text-base font-semibold text-white">
+                    {edu.institution}
+                  </h3>
+                  <p className="text-sm text-zinc-300 mt-0.5">
+                    {edu.degree}
+                  </p>
+                  <span className="text-xs text-zinc-400 font-mono">
+                    {edu.location}
+                  </span>
+                </div>
               </div>
-              <div className="sm:text-right font-mono text-xs shrink-0">
+
+              <div className="sm:text-right font-mono text-xs shrink-0 pl-16 sm:pl-0">
                 <div className="text-zinc-400">{edu.period}</div>
-                <div className="text-zinc-100 font-bold mt-0.5">{edu.score}</div>
+                <div className="text-zinc-100 font-bold mt-0.5 text-sm">{edu.score}</div>
               </div>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>
@@ -79,4 +92,3 @@ export default function Education() {
     </section>
   );
 }
-

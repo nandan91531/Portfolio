@@ -45,7 +45,8 @@ export default function Header({ onOpenResume }) {
               {personal.location}
             </span>
             <span>•</span>
-            <span className="text-zinc-300 font-medium">
+            <span className="inline-flex items-center gap-1.5 text-zinc-200 font-medium">
+              <img src="/bit-logo.png" alt="BIT Bangalore" className="w-4 h-4 object-contain rounded-full bg-white p-[1px]" />
               {personal.college} (CGPA {personal.cgpa})
             </span>
           </div>

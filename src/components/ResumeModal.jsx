@@ -99,10 +99,15 @@ export default function ResumeModal({ isOpen, onClose }) {
             </h2>
             <div className="space-y-3">
               {education.map((edu, idx) => (
-                <div key={idx} className="flex justify-between text-xs">
-                  <div>
-                    <strong className="text-zinc-100">{edu.institution}</strong>, {edu.location}
-                    <div className="italic text-zinc-400">{edu.degree}</div>
+                <div key={idx} className="flex justify-between items-start text-xs">
+                  <div className="flex items-center gap-2">
+                    {edu.logo && (
+                      <img src={edu.logo} alt="logo" className="w-5 h-5 object-contain rounded bg-white p-[1px] shrink-0" />
+                    )}
+                    <div>
+                      <strong className="text-zinc-100">{edu.institution}</strong>, {edu.location}
+                      <div className="italic text-zinc-400">{edu.degree}</div>
+                    </div>
                   </div>
                   <div className="text-right font-mono text-zinc-400 shrink-0">
                     <div>{edu.period}</div>

@@ -124,21 +124,24 @@ export const education = [
     location: "Bengaluru, Karnataka",
     degree: "Bachelor of Engineering in Electronics & Communication Engineering",
     period: "2023 – 2027",
-    score: "CGPA: 8.25 / 10"
+    score: "CGPA: 8.25 / 10",
+    logo: "/bit-logo.png"
   },
   {
     institution: "Kendriya Vidyalaya",
     location: "Hinoo, Ranchi, Jharkhand – 834002",
     degree: "Senior Secondary (Class XII – CBSE)",
     period: "Completed",
-    score: "87.2%"
+    score: "87.2%",
+    logo: "/kvs-logo.svg"
   },
   {
     institution: "Kendriya Vidyalaya",
     location: "Hinoo, Ranchi, Jharkhand – 834002",
     degree: "Secondary School (Class X – CBSE)",
     period: "Completed",
-    score: "83.4%"
+    score: "83.4%",
+    logo: "/kvs-logo.svg"
   }
 ];
 
