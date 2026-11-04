@@ -74,6 +74,22 @@ export const projects = [
     featured: true
   },
   {
+    title: "Credit Risk Assessment & Prediction System",
+    subtitle: "ML-Based Loan Default Risk Classifier",
+    period: "2025 – 2026",
+    tech: ["Python", "Pandas", "NumPy", "Scikit-learn", "XGBoost", "FastAPI", "SHAP"],
+    description: "Machine learning system predicting loan default probability using borrower financial records and interpretability algorithms.",
+    points: [
+      "Developed an ML-based system to predict loan default probability using borrower financial and credit history data.",
+      "Performed data preprocessing, EDA, and feature engineering for model development.",
+      "Implemented an optimized classification threshold to categorize applicants into High-Risk and Low-Risk segments.",
+      "Built a FastAPI backend with an interactive web interface and deployed it on Render."
+    ],
+    github: "https://github.com/nandan91531/credit-risk-assessment",
+    liveDemo: "https://credit-risk-assessment-w7tp.onrender.com",
+    featured: true
+  },
+  {
     title: "Academic Result Automation System",
     subtitle: "Web Scraping & Analytics Pipeline",
     period: "2025",
@@ -94,9 +110,9 @@ export const projects = [
 export const skills = {
   "Programming": ["Python", "C++", "SQL"],
   "AI & Generative AI": ["LangGraph", "MCP (Model Context Protocol)", "LLMs", "RAG", "Prompt Engineering", "Ollama", "OpenAI Whisper", "Hugging Face", "LangChain", "Groq"],
+  "Machine Learning & Data": ["XGBoost", "SHAP", "Scikit-learn", "Pandas", "NumPy", "Text Embeddings", "Semantic Search", "Matplotlib", "Power BI"],
   "Backend & APIs": ["FastAPI", "Flask", "REST APIs", "Multithreading"],
   "Databases & Storage": ["PostgreSQL", "MySQL", "ChromaDB (Vector DB)", "SQLite"],
-  "Machine Learning & Data": ["Scikit-learn", "Pandas", "NumPy", "Text Embeddings", "Semantic Search", "Matplotlib", "Power BI"],
   "Testing & Automation": ["pytest", "Regression Testing", "Requests", "Web Scraping", "BeautifulSoup"],
   "Deployment & Tools": ["Docker", "Git", "GitHub", "Render", "Railway", "Vercel", "VS Code", "Jupyter Notebook"],
   "Core Computer Science": ["Data Structures & Algorithms", "OOP", "DBMS", "Operating Systems", "Computer Networks"]
