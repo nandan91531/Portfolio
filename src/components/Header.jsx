@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Github, Linkedin, Mail, ArrowUpRight, Copy, Check, FileText, MapPin, Sparkles, Code2, Bot, Layers } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowUpRight, Copy, Check, FileText, MapPin, Sparkles, Code2, Bot, Layers, Download } from 'lucide-react';
 import { personal, stats } from '../data/portfolioData';
 import nandanPhoto from '../assets/nandan.jpg';
 import TiltCard from './TiltCard';
@@ -57,12 +57,21 @@ export default function Header({ onOpenResume }) {
 
           {/* Action Buttons */}
           <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
-            <button
-              onClick={onOpenResume}
+            <a
+              href="/Nandan_Sharma_Resume.pdf"
+              download="Nandan_Sharma_Resume.pdf"
               className="px-5 py-2.5 rounded-lg bg-zinc-100 hover:bg-white text-zinc-950 font-bold text-xs flex items-center gap-2 transition-all shadow-md shadow-white/5 hover:scale-105"
             >
-              <FileText className="w-4 h-4" />
-              <span>View Verified Resume</span>
+              <Download className="w-4 h-4" />
+              <span>Download Resume</span>
+            </a>
+
+            <button
+              onClick={onOpenResume}
+              className="px-4 py-2.5 rounded-lg bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 hover:text-white text-xs font-medium border border-zinc-700/80 transition-colors flex items-center gap-1.5"
+            >
+              <FileText className="w-3.5 h-3.5 text-zinc-400" />
+              <span>Preview</span>
             </button>
 
             <button

@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Printer } from 'lucide-react';
+import { X, Printer, Download } from 'lucide-react';
 import { personal, projects, skills, education, certifications, achievements, leadership } from '../data/portfolioData';
 
 export default function ResumeModal({ isOpen, onClose }) {
@@ -13,12 +13,20 @@ export default function ResumeModal({ isOpen, onClose }) {
         <div className="flex items-center justify-between pb-4 border-b border-zinc-800 mb-6 print:hidden">
           <span className="text-xs font-mono text-zinc-400">Curriculum Vitae</span>
           <div className="flex items-center gap-2">
+            <a
+              href="/Nandan_Sharma_Resume.pdf"
+              download="Nandan_Sharma_Resume.pdf"
+              className="px-3 py-1 rounded bg-zinc-100 hover:bg-white text-xs font-bold text-zinc-950 flex items-center gap-1.5 transition-colors shadow-sm"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Download PDF</span>
+            </a>
             <button
               onClick={() => window.print()}
               className="px-3 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-xs font-medium text-zinc-200 flex items-center gap-1.5 transition-colors"
             >
               <Printer className="w-3.5 h-3.5" />
-              <span>Print / Save PDF</span>
+              <span>Print</span>
             </button>
             <button
               onClick={onClose}

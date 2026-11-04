@@ -36,9 +36,13 @@ export default function App() {
             <a href={personal.linkedin} target="_blank" rel="noreferrer" className="hover:text-zinc-300 transition-colors">
               LinkedIn
             </a>
-            <button onClick={() => setIsResumeOpen(true)} className="hover:text-zinc-300 transition-colors">
-              Resume
-            </button>
+            <a
+              href="/Nandan_Sharma_Resume.pdf"
+              download="Nandan_Sharma_Resume.pdf"
+              className="hover:text-zinc-300 transition-colors"
+            >
+              Resume (PDF)
+            </a>
           </div>
         </footer>
       </div>
