@@ -103,6 +103,7 @@ export const projects = [
       "Automated CAPTCHA reading with OpenCV preprocessing and Tesseract OCR."
     ],
     github: "https://github.com/nandan91531",
+    liveDemo: "https://vtu-scraper-nandan-sharma-1.onrender.com",
     featured: true
   }
 ];
