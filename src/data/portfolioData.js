@@ -11,7 +11,7 @@ export const personal = {
   degree: "Bachelor of Engineering in Electronics & Communication",
   period: "2023 – 2027",
   cgpa: "8.25 / 10",
-  summary: "Electronics and Communication Engineering undergraduate with hands-on experience building Python-based software, AI automation, and backend applications. Strong foundation in Python, SQL, REST APIs, Data Structures, DBMS, and software engineering, with practical experience developing RAG and LLM-powered solutions."
+  summary: "Electronics and Communication Engineering undergraduate with hands-on experience building Python-based software, multi-agent AI systems, MCP integrations, and scalable backend applications. Strong foundation in Python, SQL, REST APIs, Data Structures, DBMS, and practical experience developing LangGraph, RAG, and LLM-powered solutions."
 };
 
 export const stats = [
@@ -22,22 +22,6 @@ export const stats = [
 ];
 
 export const projects = [
-  {
-    title: "Regression Guard",
-    subtitle: "AI-Assisted Regression Test Generator",
-    period: "2026 – Present",
-    tech: ["Python", "Git", "Ollama", "pytest", "Prompt Engineering", "Quality Assurance"],
-    description: "An AI-assisted tool that analyzes buggy and fixed Git commits to automatically generate regression test suites.",
-    points: [
-      "Engineered an automated tool that analyzes buggy and fixed Git commits to synthesize targeted regression tests.",
-      "Designed constrained LLM prompting and automated validation to ensure tests fail on buggy code and pass on the fixed version, with feedback-based retries.",
-      "Generated validation reports and benchmarked workflows on real code changes from the open-source humanize library.",
-      "Masked expected values in pytest failure logs before prompting to prevent answer leakage into generated tests.",
-      "Built a CLI and a web UI with live log streaming and support for selectable local Ollama models."
-    ],
-    github: "https://github.com/nandan91531",
-    featured: true
-  },
   {
     title: "Lectura AI",
     subtitle: "YouTube & Lecture Study Assistant",
@@ -50,6 +34,41 @@ export const projects = [
       "Validated the pipeline across multiple lecture videos and integrated AI summaries, study questions, interactive Q&A, and PDF/TXT exports.",
       "Exposed the pipeline through FastAPI REST endpoints.",
       "Split long audio into 10-minute chunks and merged section-wise LLM summaries into one final summary."
+    ],
+    github: "https://github.com/nandan91531",
+    featured: true
+  },
+  {
+    title: "TripMate AI",
+    subtitle: "MCP-Based Multi-Agent Travel Planning System",
+    period: "2026",
+    tech: ["Python", "FastAPI", "LangGraph", "LangChain", "Groq", "MCP", "PostgreSQL", "Tavily", "AviationStack", "OpenWeather", "Docker"],
+    description: "An AI-powered multi-agent travel planning system using LangGraph and Model Context Protocol (MCP) to autonomously orchestrate flights, hotels, weather, budget, and itineraries.",
+    points: [
+      "Developed an AI-powered multi-agent travel planning system using LangGraph to coordinate specialized agents for flight information, hotel discovery, weather analysis, budget estimation, and itinerary generation.",
+      "Implemented a supervisor-based routing mechanism with input guardrails to dynamically select relevant agents based on user travel requirements.",
+      "Integrated external services through MCP (Model Context Protocol), including Tavily for hotel discovery, AviationStack for airport and airline information, and a custom OpenWeather MCP server for weather and forecast data.",
+      "Designed a shared workflow state to exchange information between agents and generate context-aware, budget-conscious travel itineraries.",
+      "Implemented Human-in-the-Loop approval using LangGraph interrupts, allowing users to review, approve, or request revisions to generated itineraries.",
+      "Integrated PostgreSQL checkpointing to persist workflow state and support resumption of interrupted conversations.",
+      "Built REST APIs using FastAPI and containerized the application with Docker for cloud deployment."
+    ],
+    github: "https://github.com/nandan91531/Tripmate-AI",
+    liveDemo: "https://tripmate-ai-khiv.onrender.com",
+    featured: true
+  },
+  {
+    title: "Regression Guard",
+    subtitle: "AI-Assisted Regression Test Generator",
+    period: "2026 – Present",
+    tech: ["Python", "Git", "Ollama", "pytest", "Prompt Engineering", "Quality Assurance"],
+    description: "An AI-assisted tool that analyzes buggy and fixed Git commits to automatically generate regression test suites.",
+    points: [
+      "Engineered an automated tool that analyzes buggy and fixed Git commits to synthesize targeted regression tests.",
+      "Designed constrained LLM prompting and automated validation to ensure tests fail on buggy code and pass on the fixed version, with feedback-based retries.",
+      "Generated validation reports and benchmarked workflows on real code changes from the open-source humanize library.",
+      "Masked expected values in pytest failure logs before prompting to prevent answer leakage into generated tests.",
+      "Built a CLI and a web UI with live log streaming and support for selectable local Ollama models."
     ],
     github: "https://github.com/nandan91531",
     featured: true
@@ -74,12 +93,12 @@ export const projects = [
 
 export const skills = {
   "Programming": ["Python", "C++", "SQL"],
-  "AI & Generative AI": ["LLMs", "RAG", "Prompt Engineering", "Ollama", "OpenAI Whisper", "Hugging Face", "LangChain"],
+  "AI & Generative AI": ["LangGraph", "MCP (Model Context Protocol)", "LLMs", "RAG", "Prompt Engineering", "Ollama", "OpenAI Whisper", "Hugging Face", "LangChain", "Groq"],
   "Backend & APIs": ["FastAPI", "Flask", "REST APIs", "Multithreading"],
+  "Databases & Storage": ["PostgreSQL", "MySQL", "ChromaDB (Vector DB)", "SQLite"],
   "Machine Learning & Data": ["Scikit-learn", "Pandas", "NumPy", "Text Embeddings", "Semantic Search", "Matplotlib", "Power BI"],
   "Testing & Automation": ["pytest", "Regression Testing", "Requests", "Web Scraping", "BeautifulSoup"],
-  "Deployment & Tools": ["Git", "GitHub", "Docker (Basics)", "Railway", "Vercel", "VS Code", "Jupyter Notebook"],
-  "Databases & Storage": ["MySQL", "ChromaDB", "SQLite"],
+  "Deployment & Tools": ["Docker", "Git", "GitHub", "Render", "Railway", "Vercel", "VS Code", "Jupyter Notebook"],
   "Core Computer Science": ["Data Structures & Algorithms", "OOP", "DBMS", "Operating Systems", "Computer Networks"]
 };
 
