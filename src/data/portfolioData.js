@@ -7,6 +7,8 @@ export const personal = {
   phone: "+91-8970243018",
   github: "https://github.com/nandan91531",
   linkedin: "https://linkedin.com/in/nandan-sharma-b4a472288",
+  // Web3Forms Access Key for silent background email delivery directly to nandan.sharma.tech@gmail.com
+  web3formsKey: "94596bdf-9d21-4f2f-ac13-86b8d0876bf4",
   college: "Bangalore Institute of Technology",
   degree: "Bachelor of Engineering in Electronics & Communication",
   period: "2023 – 2027",
