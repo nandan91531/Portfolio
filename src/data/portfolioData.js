@@ -132,6 +132,13 @@ export const education = [
     degree: "Senior Secondary (Class XII – CBSE)",
     period: "Completed",
     score: "87.2%"
+  },
+  {
+    institution: "Kendriya Vidyalaya",
+    location: "Hinoo, Ranchi, Jharkhand – 834002",
+    degree: "Secondary School (Class X – CBSE)",
+    period: "Completed",
+    score: "83.4%"
   }
 ];
 
