@@ -181,10 +181,23 @@ export default function Education() {
             {certifications.map((c, idx) => (
               <li
                 key={idx}
-                className="p-3.5 rounded-lg bg-zinc-900/30 border border-zinc-800/80 flex items-start justify-between gap-2 text-xs"
+                className="p-3 rounded-xl bg-zinc-900/40 border border-zinc-800/80 hover:border-zinc-700 transition-all flex items-center justify-between gap-3 text-xs shadow-sm"
               >
-                <span className="font-medium text-zinc-200">{c.title}</span>
-                <span className="text-zinc-500 font-mono shrink-0">{c.issuer}</span>
+                <div className="flex items-center gap-3">
+                  {c.logo && (
+                    <div className="w-8 h-8 rounded-lg bg-white p-1 flex items-center justify-center shrink-0 shadow-sm border border-zinc-700/40">
+                      <img
+                        src={c.logo}
+                        alt={`${c.issuer} Logo`}
+                        className="max-w-full max-h-full object-contain"
+                      />
+                    </div>
+                  )}
+                  <span className="font-medium text-zinc-200">{c.title}</span>
+                </div>
+                <span className="text-zinc-400 font-mono text-[11px] shrink-0 pl-2">
+                  {c.issuer}
+                </span>
               </li>
             ))}
           </ul>

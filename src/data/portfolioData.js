@@ -146,10 +146,10 @@ export const education = [
 ];
 
 export const certifications = [
-  { title: "Getting Started with Generative AI", issuer: "IBM" },
-  { title: "Tata GenAI Powered Data Analytics Job Simulation", issuer: "Tata Group" },
-  { title: "Docker Essentials: A Developer Introduction", issuer: "IBM" },
-  { title: "The Ultimate Job Ready Data Science Course", issuer: "CodeWithHarry" }
+  { title: "Getting Started with Generative AI", issuer: "IBM", logo: "/ibm-logo.svg" },
+  { title: "Tata GenAI Powered Data Analytics Job Simulation", issuer: "Tata Group", logo: "/tata-logo.svg" },
+  { title: "Docker Essentials: A Developer Introduction", issuer: "IBM", logo: "/ibm-logo.svg" },
+  { title: "The Ultimate Job Ready Data Science Course", issuer: "CodeWithHarry", logo: "/cwh-logo.svg" }
 ];
 
 export const achievements = [

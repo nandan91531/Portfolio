@@ -124,9 +124,17 @@ export default function ResumeModal({ isOpen, onClose }) {
               <h2 className="text-xs font-bold uppercase tracking-wider text-white border-b border-zinc-800 pb-1 mb-2 font-mono">
                 Certifications
               </h2>
-              <ul className="list-disc pl-4 space-y-1 text-xs text-zinc-300">
+              <ul className="space-y-2 text-xs text-zinc-300">
                 {certifications.map((c, idx) => (
-                  <li key={idx}><span className="text-zinc-100">{c.title}</span> – {c.issuer}</li>
+                  <li key={idx} className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      {c.logo && (
+                        <img src={c.logo} alt="logo" className="w-4 h-4 object-contain rounded bg-white p-[1px] shrink-0" />
+                      )}
+                      <span className="text-zinc-100 font-medium">{c.title}</span>
+                    </div>
+                    <span className="text-zinc-400 font-mono text-[11px] shrink-0">{c.issuer}</span>
+                  </li>
                 ))}
               </ul>
             </div>
