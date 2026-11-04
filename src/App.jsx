@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ThreeCanvas from './components/ThreeCanvas';
 import Header from './components/Header';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
@@ -11,30 +12,24 @@ export default function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#09090b] text-zinc-100 font-sans selection:bg-zinc-800 selection:text-white">
-      <div className="max-w-3xl mx-auto px-6">
-        
-        {/* Header / Intro */}
+    <div className="relative min-h-screen bg-[#07090e] text-zinc-100 font-sans selection:bg-sky-500 selection:text-black overflow-x-hidden">
+      {/* 3D Interactive Three.js Constellation Background */}
+      <ThreeCanvas />
+
+      {/* Main Foreground Container */}
+      <div className="relative z-10 max-w-4xl mx-auto px-6">
         <Header onOpenResume={() => setIsResumeOpen(true)} />
-
-        {/* Featured Projects */}
         <Projects />
-
-        {/* Technical Skills */}
         <Skills />
-
-        {/* Education & Certifications */}
         <Education />
-
-        {/* Contact */}
         <Contact />
 
         {/* Minimal Footer */}
-        <footer className="py-10 text-xs text-zinc-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <footer className="py-12 text-xs text-zinc-500 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-zinc-800/60">
           <div>
             © {new Date().getFullYear()} {personal.name}. All rights reserved.
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 font-mono">
             <a href={personal.github} target="_blank" rel="noreferrer" className="hover:text-zinc-300 transition-colors">
               GitHub
             </a>
@@ -46,10 +41,9 @@ export default function App() {
             </button>
           </div>
         </footer>
-
       </div>
 
-      {/* Resume Modal */}
+      {/* Verified Resume Modal */}
       <ResumeModal
         isOpen={isResumeOpen}
         onClose={() => setIsResumeOpen(false)}
