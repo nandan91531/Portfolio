@@ -1,50 +1,55 @@
 import React, { useState } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
+import Header from './components/Header';
 import Projects from './components/Projects';
-import AiTerminal from './components/AiTerminal';
-import EducationCertifications from './components/EducationCertifications';
+import Skills from './components/Skills';
+import Education from './components/Education';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
 import ResumeModal from './components/ResumeModal';
-import { FileText, ArrowUp } from 'lucide-react';
+import { personal } from './data/portfolioData';
 
 export default function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen bg-[#070b14] text-slate-100 selection:bg-cyan-500 selection:text-black">
-      {/* Top Fixed Navigation */}
-      <Navbar onOpenResume={() => setIsResumeOpen(true)} />
+    <div className="min-h-screen bg-[#09090b] text-zinc-100 font-sans selection:bg-zinc-800 selection:text-white">
+      <div className="max-w-3xl mx-auto px-6">
+        
+        {/* Header / Intro */}
+        <Header onOpenResume={() => setIsResumeOpen(true)} />
 
-      {/* Main Content Sections */}
-      <main>
-        <Hero onOpenResume={() => setIsResumeOpen(true)} />
-        <About />
-        <Skills />
+        {/* Featured Projects */}
         <Projects />
-        <AiTerminal />
-        <EducationCertifications />
+
+        {/* Technical Skills */}
+        <Skills />
+
+        {/* Education & Certifications */}
+        <Education />
+
+        {/* Contact */}
         <Contact />
-      </main>
 
-      {/* Footer */}
-      <Footer />
+        {/* Minimal Footer */}
+        <footer className="py-10 text-xs text-zinc-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            © {new Date().getFullYear()} {personal.name}. All rights reserved.
+          </div>
+          <div className="flex items-center gap-4">
+            <a href={personal.github} target="_blank" rel="noreferrer" className="hover:text-zinc-300 transition-colors">
+              GitHub
+            </a>
+            <a href={personal.linkedin} target="_blank" rel="noreferrer" className="hover:text-zinc-300 transition-colors">
+              LinkedIn
+            </a>
+            <button onClick={() => setIsResumeOpen(true)} className="hover:text-zinc-300 transition-colors">
+              Resume
+            </button>
+          </div>
+        </footer>
 
-      {/* Floating Resume Quick Button (bottom right) */}
-      <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-2">
-        <button
-          onClick={() => setIsResumeOpen(true)}
-          className="px-4 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 to-violet-600 hover:from-cyan-400 hover:to-violet-500 text-slate-950 font-bold text-xs shadow-xl shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:-translate-y-0.5 transition-all flex items-center gap-2"
-        >
-          <FileText className="w-4 h-4" />
-          <span>View Resume</span>
-        </button>
       </div>
 
-      {/* Full Resume Modal */}
+      {/* Resume Modal */}
       <ResumeModal
         isOpen={isResumeOpen}
         onClose={() => setIsResumeOpen(false)}

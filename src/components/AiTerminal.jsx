@@ -232,3 +232,4 @@ GitHub   : ${personalInfo.github}`
     </section>
   );
 }
+
