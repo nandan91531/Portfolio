@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { Mail, Phone, Copy, Check, Send, ArrowUpRight, ExternalLink, Loader2, Sparkles } from 'lucide-react';
+import { Mail, Phone, Copy, Check, Send, ArrowUpRight, ExternalLink } from 'lucide-react';
 import { personal } from '../data/portfolioData';
 
 export default function Contact() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
-  const [copiedMsg, setCopiedMsg] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState({ state: 'idle', msg: '' });
 
   const copyEmail = () => {
     navigator.clipboard.writeText(personal.email);
@@ -21,67 +19,7 @@ export default function Contact() {
     setTimeout(() => setCopiedPhone(false), 2000);
   };
 
-  const openGmailCompose = () => {
-    const subject = encodeURIComponent(form.name ? `Portfolio Message from ${form.name}` : 'Portfolio Inquiry');
-    const body = encodeURIComponent(
-      form.message
-        ? `From: ${form.name} (${form.email})\n\nMessage:\n${form.message}`
-        : `Hi Nandan,\n\nI saw your portfolio and would like to connect regarding...`
-    );
-    window.open(
-      `https://mail.google.com/mail/?view=cm&fs=1&to=${personal.email}&su=${subject}&body=${body}`,
-      '_blank'
-    );
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!form.name || !form.email || !form.message) return;
-
-    setStatus({ state: 'sending', msg: 'Sending message...' });
-
-    try {
-      // 1. Submit directly to inbox via free Formsubmit endpoint
-      const res = await fetch(`https://formsubmit.co/ajax/${personal.email}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json'
-        },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          message: form.message,
-          _subject: `Portfolio Message from ${form.name}`
-        })
-      });
-
-      if (res.ok) {
-        setStatus({
-          state: 'success',
-          msg: '✓ Message sent successfully! I will get back to you shortly.'
-        });
-        setForm({ name: '', email: '', message: '' });
-      } else {
-        throw new Error('Service fallback');
-      }
-    } catch (err) {
-      // 2. Reliable Fallback: Open Gmail Web Compose tab directly in browser
-      openGmailCompose();
-      setStatus({
-        state: 'success',
-        msg: '✓ Opened Gmail Web Compose tab with your message pre-filled!'
-      });
-    }
-  };
-
-  const copyFormattedMessage = () => {
-    if (!form.name && !form.message) return;
-    const text = `From: ${form.name} (${form.email})\nMessage: ${form.message}`;
-    navigator.clipboard.writeText(text);
-    setCopiedMsg(true);
-    setTimeout(() => setCopiedMsg(false), 2000);
-  };
+  const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(personal.email)}&su=${encodeURIComponent(form.name ? `Portfolio Message from ${form.name}` : 'Portfolio Inquiry')}&body=${encodeURIComponent(form.message ? `From: ${form.name} (${form.email})\n\nMessage:\n${form.message}` : 'Hi Nandan,\n\nI saw your portfolio and would like to connect.')}`;
 
   return (
     <section className="py-14 border-b border-zinc-800/80">
@@ -95,7 +33,7 @@ export default function Contact() {
         </span>
       </div>
       <p className="text-zinc-400 text-sm mb-8 max-w-xl">
-        I am actively seeking AI, Backend, and Software Engineering internships and full-time opportunities. Reach out via email, phone, or send a note below.
+        I am actively seeking AI, Backend, and Software Engineering internships and full-time opportunities. Reach out via email, phone, or submit the form below.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
@@ -114,13 +52,15 @@ export default function Contact() {
               </a>
             </div>
             <div className="flex items-center gap-1">
-              <button
-                onClick={openGmailCompose}
+              <a
+                href={gmailWebUrl}
+                target="_blank"
+                rel="noreferrer"
                 className="p-1.5 rounded-md hover:bg-zinc-800 text-zinc-400 hover:text-sky-400 transition-colors"
                 title="Open directly in Gmail Web"
               >
                 <ExternalLink className="w-4 h-4" />
-              </button>
+              </a>
               <button
                 onClick={copyEmail}
                 className="p-1.5 rounded-md hover:bg-zinc-800 text-zinc-400 hover:text-white transition-colors"
@@ -173,25 +113,40 @@ export default function Contact() {
             </a>
           </div>
 
-          {/* Quick Direct Compose Helper */}
-          <div className="p-3.5 rounded-xl bg-zinc-900/30 border border-zinc-800/60 text-xs text-zinc-400 flex items-center justify-between">
-            <span>Prefer Gmail directly?</span>
-            <button
-              onClick={openGmailCompose}
-              className="px-2.5 py-1 rounded bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 font-mono text-xs border border-sky-500/30 transition-colors flex items-center gap-1"
+          {/* Direct 1-Click Gmail Button */}
+          <div className="p-4 rounded-xl bg-sky-950/20 border border-sky-500/20 text-xs flex items-center justify-between">
+            <div>
+              <span className="text-zinc-200 font-semibold block">Open in Gmail Web</span>
+              <span className="text-zinc-400 text-[11px]">Compose directly to {personal.email}</span>
+            </div>
+            <a
+              href={gmailWebUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="px-3 py-1.5 rounded-lg bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 font-medium text-xs border border-sky-500/30 transition-colors flex items-center gap-1.5"
             >
-              <span>Open in Gmail</span>
-              <ExternalLink className="w-3 h-3" />
-            </button>
+              <span>Launch</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
           </div>
         </div>
 
-        {/* Message Form */}
-        <form onSubmit={handleSubmit} className="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800/90 space-y-4 shadow-xl">
+        {/* Direct Email Submission Form */}
+        <form
+          action={`https://formsubmit.co/${personal.email}`}
+          method="POST"
+          className="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800/90 space-y-4 shadow-xl"
+        >
+          {/* Formsubmit hidden settings */}
+          <input type="hidden" name="_subject" value={`New Portfolio Message from ${form.name || 'Visitor'}`} />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+
           <div>
             <label className="block text-xs font-mono text-zinc-400 mb-1">Your Name *</label>
             <input
               type="text"
+              name="name"
               required
               placeholder="e.g. Alex"
               value={form.name}
@@ -204,6 +159,7 @@ export default function Contact() {
             <label className="block text-xs font-mono text-zinc-400 mb-1">Your Email *</label>
             <input
               type="email"
+              name="email"
               required
               placeholder="alex@company.com"
               value={form.email}
@@ -215,6 +171,7 @@ export default function Contact() {
           <div>
             <label className="block text-xs font-mono text-zinc-400 mb-1">Message *</label>
             <textarea
+              name="message"
               required
               rows={4}
               placeholder="Tell me about the role, project, or collaboration..."
@@ -224,42 +181,25 @@ export default function Contact() {
             />
           </div>
 
-          {/* Status Message */}
-          {status.state === 'success' && (
-            <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono flex items-center gap-2">
-              <Check className="w-4 h-4 shrink-0" />
-              <span>{status.msg}</span>
-            </div>
-          )}
-
-          <div className="flex flex-col sm:flex-row gap-2 pt-1">
+          <div className="flex flex-col sm:flex-row gap-2.5 pt-1">
             <button
               type="submit"
-              disabled={status.state === 'sending'}
-              className="flex-1 py-3 px-4 rounded-lg bg-zinc-100 hover:bg-white text-zinc-950 font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-md hover:scale-[1.01] disabled:opacity-50"
+              className="flex-1 py-3 px-4 rounded-lg bg-zinc-100 hover:bg-white text-zinc-950 font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-md hover:scale-[1.01]"
             >
-              {status.state === 'sending' ? (
-                <>
-                  <Loader2 className="w-4 h-4 animate-spin text-zinc-950" />
-                  <span>Sending...</span>
-                </>
-              ) : (
-                <>
-                  <Send className="w-3.5 h-3.5" />
-                  <span>Send Message</span>
-                </>
-              )}
+              <Send className="w-3.5 h-3.5" />
+              <span>Send Message</span>
             </button>
 
-            <button
-              type="button"
-              onClick={openGmailCompose}
-              className="py-3 px-3.5 rounded-lg bg-zinc-800/80 hover:bg-zinc-700 text-zinc-200 text-xs font-medium border border-zinc-700/80 transition-colors flex items-center justify-center gap-1.5"
-              title="Open message directly in Gmail web compose"
+            <a
+              href={gmailWebUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="py-3 px-4 rounded-lg bg-zinc-800/90 hover:bg-zinc-700 text-zinc-200 text-xs font-semibold border border-zinc-700/80 transition-colors flex items-center justify-center gap-1.5"
+              title="Open your pre-filled message directly in Gmail web compose"
             >
               <span>Gmail Web</span>
               <ExternalLink className="w-3 h-3 text-zinc-400" />
-            </button>
+            </a>
           </div>
         </form>
 
