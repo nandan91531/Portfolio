@@ -1,6 +1,6 @@
 import React from 'react';
 import { X, Printer } from 'lucide-react';
-import { personal, projects, skills, education, certifications, achievements } from '../data/portfolioData';
+import { personal, projects, skills, education, certifications, achievements, leadership } from '../data/portfolioData';
 
 export default function ResumeModal({ isOpen, onClose }) {
   if (!isOpen) return null;
@@ -141,6 +141,20 @@ export default function ResumeModal({ isOpen, onClose }) {
                 ))}
               </ul>
             </div>
+          </div>
+
+          {/* Leadership & Extracurricular Activities */}
+          <div>
+            <h2 className="text-xs font-bold uppercase tracking-wider text-white border-b border-zinc-800 pb-1 mb-2 font-mono">
+              Leadership & Extracurricular Activities
+            </h2>
+            <ul className="list-disc pl-4 space-y-1.5 text-xs text-zinc-300">
+              {leadership.map((item, idx) => (
+                <li key={idx}>
+                  <strong className="text-zinc-100">{item.role}:</strong> {item.description}
+                </li>
+              ))}
+            </ul>
           </div>
 
         </div>

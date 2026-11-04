@@ -1,13 +1,16 @@
 import React from 'react';
-import { education, certifications, achievements } from '../data/portfolioData';
+import { education, certifications, achievements, leadership } from '../data/portfolioData';
 import TiltCard from './TiltCard';
+import { Users, BookOpen, Trophy, Award, Medal } from 'lucide-react';
 
 export default function Education() {
+  const leadershipIcons = [Users, BookOpen, Medal];
+
   return (
     <section className="py-12 border-b border-zinc-800/80">
       
       {/* Education */}
-      <div className="mb-10">
+      <div className="mb-12">
         <h2 className="text-xl font-bold tracking-tight text-white mb-6">
           Education
         </h2>
@@ -19,11 +22,11 @@ export default function Education() {
             >
               <div className="flex items-center gap-4">
                 {edu.logo && (
-                  <div className="w-12 h-12 rounded-xl bg-white/95 p-1.5 flex items-center justify-center shrink-0 shadow-md border border-zinc-700/50">
+                  <div className="w-12 h-12 rounded-xl bg-white p-1.5 flex items-center justify-center shrink-0 shadow-md border border-zinc-700/50">
                     <img
                       src={edu.logo}
                       alt={`${edu.institution} Logo`}
-                      className="max-w-full max-h-full object-contain"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                 )}
@@ -49,7 +52,37 @@ export default function Education() {
         </div>
       </div>
 
-      {/* Certifications & Achievements Split */}
+      {/* Leadership & Extracurricular Activities */}
+      <div className="mb-12">
+        <h2 className="text-xl font-bold tracking-tight text-white mb-6">
+          Leadership & Extracurricular Activities
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {leadership.map((item, idx) => {
+            const Icon = leadershipIcons[idx] || Users;
+            return (
+              <TiltCard
+                key={idx}
+                className="p-5 rounded-xl bg-zinc-900/40 border border-zinc-800/80 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="w-9 h-9 rounded-lg bg-zinc-800 border border-zinc-700/60 flex items-center justify-center text-sky-400 mb-3.5">
+                    <Icon className="w-4 h-4" />
+                  </div>
+                  <h3 className="text-sm font-semibold text-white mb-2">
+                    {item.role}
+                  </h3>
+                  <p className="text-xs text-zinc-300 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </TiltCard>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Certifications & Problem Solving Split */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         
         {/* Certifications */}

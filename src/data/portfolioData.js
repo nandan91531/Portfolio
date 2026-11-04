@@ -156,3 +156,18 @@ export const achievements = [
   "Solved 250+ DSA problems covering data structures, algorithmic optimization, and problem solving.",
   "Solved 50 SQL problems from LeetCode SQL 50 study plan."
 ];
+
+export const leadership = [
+  {
+    role: "Project Team Leader",
+    description: "Leading the final-year ECG project team and coordinating end-to-end project development and architecture tasks."
+  },
+  {
+    role: "Technical & Peer Mentor",
+    description: "Helped junior students understand college coursework, prepare for examinations, and guided them in core technical skills including Python, DSA, and Machine Learning."
+  },
+  {
+    role: "Sports Achievements",
+    description: "Won school-level racing and cricket competitions, demonstrating athletic discipline and team leadership."
+  }
+];
