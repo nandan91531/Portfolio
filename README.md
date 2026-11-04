@@ -43,7 +43,40 @@ Generates an optimized static bundle in the `dist/` directory.
 
 ---
 
-## 🌐 How to Host on Render (Step-by-Step)
+## 🌐 How to Host on Vercel (Fastest & Recommended)
+
+Vercel provides blazing-fast edge CDN deployment for Vite React projects with 100% free hosting and instant custom domains.
+
+### Method 1: Via Vercel Dashboard & GitHub (Easiest — 30 Seconds)
+1. Push your latest code to your GitHub repo (e.g. `https://github.com/nandan91531/portfolio`):
+   ```bash
+   git add .
+   git commit -m "ready for vercel"
+   git push -u origin main
+   ```
+2. Open **[vercel.com](https://vercel.com)** and log in with your GitHub account.
+3. Click **"Add New..."** > **"Project"**.
+4. Select your **`portfolio`** repository and click **Import**.
+5. Vercel will auto-detect **Vite**:
+   - **Framework Preset**: `Vite`
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+6. Click **Deploy**.
+7. In ~25 seconds, your portfolio is live at `https://your-name.vercel.app` with free SSL and edge CDN!
+
+---
+
+### Method 2: Via Vercel CLI (Direct from Terminal)
+If you have Vercel CLI installed:
+```bash
+npm i -g vercel
+vercel
+```
+Follow the 3 quick prompts (press Enter for defaults) and your site will be deployed instantly!
+
+---
+
+## 🌐 Alternative: Host on Render
 
 Render provides **100% free static site hosting** with automatic global CDN, free SSL certificates, and zero cold starts.
 
