@@ -37,6 +37,7 @@ export const projects = [
       "Split long audio into 10-minute chunks and merged section-wise LLM summaries into one final summary."
     ],
     github: "https://github.com/nandan91531",
+    liveDemo: "https://lectura-ai-youtube.onrender.com/",
     featured: true
   },
   {
