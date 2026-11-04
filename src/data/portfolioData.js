@@ -160,20 +160,20 @@ export const achievements = [
 export const leadership = [
   {
     role: "Project Team Leader",
-    description: "Leading the final-year ECG project team and coordinating end-to-end project development and architecture tasks.",
-    video: "/team-leader.mp4",
-    tag: "Engineering Lead"
+    type: "team",
+    tag: "Engineering Lead",
+    description: "Leading the final-year ECG project team and coordinating end-to-end project development, architecture, and milestone delivery."
   },
   {
     role: "Technical & Peer Mentor",
-    description: "Helped junior students understand college coursework, prepare for examinations, and guided them in core technical skills including Python, DSA, and Machine Learning.",
-    video: "/peer-mentor.mp4",
-    tag: "Peer Mentorship"
+    type: "peer",
+    tag: "Peer Mentorship",
+    description: "Mentoring junior students in college coursework, exam preparation, and hands-on technical skills across Python, DSA, and Machine Learning."
   },
   {
     role: "Sports & Chess Enthusiast",
-    description: "Won school-level racing and cricket competitions. Passionate chess player who loves tactical calculation, strategic openings, and endurance under time pressure.",
-    video: "/sports-chess.mp4",
-    tag: "Sports & Chess"
+    type: "sports",
+    tag: "Sports & Chess",
+    description: "Won school-level racing and cricket competitions. Passionate chess player who loves tactical calculation, strategic openings, and mental endurance."
   }
 ];
