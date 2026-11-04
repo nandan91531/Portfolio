@@ -3,7 +3,7 @@ export const personal = {
   title: "Software Engineer",
   subtitle: "AI Automation & Backend Systems",
   location: "Bengaluru, Karnataka, India",
-  email: "ns56488663@gmail.com",
+  email: "nandan.sharma.tech@gmail.com",
   phone: "+91-8970243018",
   github: "https://github.com/nandan91531",
   linkedin: "https://linkedin.com/in/nandan-sharma-b4a472288",

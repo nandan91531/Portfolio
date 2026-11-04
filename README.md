@@ -102,7 +102,7 @@ nandan-folio/
 ## 📬 Contact & Links
 
 - **Name**: Nandan Sharma
-- **Email**: ns56488663@gmail.com
+- **Email**: nandan.sharma.tech@gmail.com
 - **Phone**: +91-8970243018
 - **LinkedIn**: [linkedin.com/in/nandan-sharma-b4a472288](https://linkedin.com/in/nandan-sharma-b4a472288)
 - **GitHub**: [github.com/nandan91531](https://github.com/nandan91531)
